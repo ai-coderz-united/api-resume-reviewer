@@ -1,0 +1,12 @@
+version: '0.0.1'
+
+services:
+  web:
+    build: .
+    command: sh -c "uvicorn app.main:app --reload --port=8080 --host=0.0.0.0"
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
