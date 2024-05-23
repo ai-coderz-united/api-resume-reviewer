@@ -11,7 +11,8 @@ API for reviewing resumes via gen ai
 ## type annotation check
 1. `mypy .`
 
-## code linting and formatting
+## code linting, formatting, and sorting imports
 1. `ruff .`
+    - For sorting then use `ruff . --fix`
 2. `ruff format`
 
