@@ -4,6 +4,8 @@ from pydantic import BaseModel, field_validator
 
 class PDFResume(BaseModel):
 	resume: UploadFile
+	desired_job_title: str = "No job title provided"
+	desired_company: str = "No company name provided"
 
 	@field_validator("resume")
 	def validate_pdf(cls, v):
