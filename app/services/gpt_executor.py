@@ -27,9 +27,14 @@ class GPTExecutor(BaseModel):
 			)
 
 	def call_llm(self, instructions: list) -> dict:
+		if self.llm is None:
+			raise ValueError("LLM is not set up. Please call setup_openai_gpt first.")
 		try:
 			llm_response = self.llm.invoke(instructions)
-			jsonified_resume = json.loads(llm_response.content)
+			if isinstance(llm_response.content, str):
+				jsonified_resume: dict = json.loads(llm_response.content)
+			else:
+				raise ValueError("Response content is not a valid JSON string.")
 			app_logger.info(
 				f"Received response from OpenAI GPT model: {jsonified_resume}"
 			)
@@ -40,7 +45,9 @@ class GPTExecutor(BaseModel):
 				f"Error occurred while decoding OpenAI GPT model response: {error}"
 			)
 			raise json.JSONDecodeError(
-				msg="Error occurred while decoding OpenAI GPT model response."
+				msg="Error occurred while decoding OpenAI GPT model response.",
+				doc=error.doc,
+				pos=error.pos,
 			)
 		except APIError as error:
 			log_exception()
