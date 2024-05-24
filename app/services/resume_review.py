@@ -34,11 +34,11 @@ class ResumeReview(BaseModel):
 		return "No LLM model available."
 
 	def resume_recommendations(
-		self, resume_dictionary: dict
+		self, resume_dictionary: dict, job_title: str, company_name: str
 	) -> Union[BaseMessage, str, dict]:
 		if self.gpt_executor.llm is not None:
-			resume_dictionary["desired_job_title"] = "Warehouse Custodian / Janitor"
-			resume_dictionary["desired_company_name"] = "Uline"
+			resume_dictionary["desired_job_title"] = job_title
+			resume_dictionary["desired_company_name"] = company_name
 
 			app_logger.info(
 				"Sending resume dictionary to OpenAI GPT model for recommendations."
