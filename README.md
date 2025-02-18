@@ -290,7 +290,7 @@ API `api/resume/review` as POST
     "Contact": {
       "Location": "Saint Paul, MN",
       "E-mail": "jjustin634@gmail.com",
-      "Phone": "(715) 307-0876",
+      "Phone": "",
       "LinkedIn": "https://www.linkedin.com/in/justin-johnson-413a931",
       "GitHub": "https://github.com/justinjohnson-dev"
     },
@@ -560,7 +560,7 @@ API `api/resume/review` as POST
     "Contact": {
       "Location": "Saint Paul, MN",
       "E-mail": "jjustin634@gmail.com",
-      "Phone": "(715) 307-0876",
+      "Phone": "",
       "LinkedIn": "https://www.linkedin.com/in/justin-johnson-413a931",
       "GitHub": "https://github.com/justinjohnson-dev"
     },
